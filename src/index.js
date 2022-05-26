@@ -26,28 +26,18 @@ const printTodos = () => {
 
 const checkTodo = event => {
     event.preventDefault()
-    console.log($input.value)
 
-    // todo 추가
     const todo = {title: $input.value, isDone: false}
     todos.push(todo)
-    console.log(todos)
 
-    // input 초기화
     $input.value = ''
 
-    // todos 출력
     printTodos()
 }
 
-//
-// 폼,input 입력 이벤트 추가하기
-// 입력했을때 todo추가
 $form.addEventListener('submit', checkTodo)
 
 const deleteTodo = index => {
-    console.log('delete', index)
-    // todos에서 index번째 todo 삭제
     todos.splice(index, 1)
     printTodos()
 }
@@ -55,7 +45,6 @@ const toggleTodo = () => {
     console.log('toggle')
 }
 
-// 삭제
 document.body.addEventListener('click', event => {
     const index = parseInt(event.target.parentNode.dataset.index, 10)
     if (event.target.className === 'delete') {
@@ -65,5 +54,4 @@ document.body.addEventListener('click', event => {
     }
 })
 
-// todos 출력
 printTodos()
