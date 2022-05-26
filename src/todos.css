@@ -92,7 +92,7 @@ li .text {
 li.checked {
     color: #888;
 }
-
+/* isDone = true */
 li.checked .text {
     text-decoration: line-through;
 }
