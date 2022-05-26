@@ -1,12 +1,9 @@
 import {printTodos} from './print-todos'
 import {init as initForm} from './form'
 import './todos.css'
+import {get as getStorage} from './storage'
 
-const todos = [
-    {title: 'HTML', isDone: false},
-    {title: 'JS', isDone: true},
-    {title: 'React', isDone: true},
-]
+const todos = getStorage() || []
 
 const deleteTodo = index => {
     console.log('delete', index)
