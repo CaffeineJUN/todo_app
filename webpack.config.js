@@ -1,36 +1,36 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(__dirname, 'docs')
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
-  devServer: {
-    static: {
-      directory: distPath,
+    mode: 'development',
+    entry: './src/index.js',
+    devServer: {
+        static: {
+            directory: distPath,
+        },
+        compress: true,
+        port: 9000,
     },
-    compress: true,
-    port: 9000,
-  },
-  output: {
-    filename: 'main.js',
-    path: distPath,
-  },
+    output: {
+        filename: 'main.js',
+        path: distPath,
+    },
 
-  plugins: [
-    // npm i html-webpack-plugin -D
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
-  module: {
-    // npm i css-loader style-loader -D
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
+    plugins: [
+        // npm i html-webpack-plugin -D
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+        }),
     ],
-  },
-};
+    module: {
+        // npm i css-loader style-loader -D
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
+}
